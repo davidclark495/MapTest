@@ -9,11 +9,15 @@ public class OverworldModel {
 	private Rectangle playerRect;
 	private Rectangle currentFrame;
 	private Rectangle fullMap;
+	
+	public TileMap tileMap;
 
-	private int tileWidth = 16;
-	private int tileHeight = 16;
-	private int screenWidth = 128;
-	private int screenHeight = 128;
+	private int tileWidth  	 = 16;
+	private int tileHeight 	 = 16;
+	private int screenWidth  = tileWidth  * 8;
+	private int screenHeight = tileHeight * 8;
+	private int mapWidth 	 = screenWidth  * 11;
+	private int mapHeight 	 = screenHeight * 9;
 
 	private double playerSpeed = 2;
 	private int cameraSpeed = screenWidth / 16;
@@ -35,6 +39,8 @@ public class OverworldModel {
 		currentFrame.y = startFrameY*screenHeight;
 		currentFrame.width = screenWidth;
 		currentFrame.height = screenHeight;
+		
+		tileMap = new TileMap(mapWidth, mapHeight, tileWidth, tileHeight);
 	}
 
 	/**
